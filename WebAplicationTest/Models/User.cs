@@ -17,13 +17,18 @@ namespace WebAplicationTest.Models
     public partial class User
     {
         public int userid { get; set; }
+
         [DisplayName("User Name")]
-        [Required(ErrorMessage ="This field is required.")]
+        [Required(ErrorMessage = "This field is required.")]
         public string username { get; set; }
+
         [DisplayName("Password")]
         [Required(ErrorMessage = "This field is required.")]
         [DataType(DataType.Password)]
         public string password { get; set; }
+        [DisplayName("Name")]
+        public string name { get; set; }
+
         public string LoginErrorMessage { get; set; }
     }
 }

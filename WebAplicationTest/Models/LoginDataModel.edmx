@@ -10,8 +10,9 @@
             <PropertyRef Name="userid" />
           </Key>
           <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="WebAplicationTestModelStoreContainer">
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -26,8 +27,9 @@
             <PropertyRef Name="userid" />
           </Key>
           <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="WebAplicationTestEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -44,6 +46,7 @@
                 <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

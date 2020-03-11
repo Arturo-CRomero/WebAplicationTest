@@ -1,5 +1,9 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    if (Session["userid"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <div class="jumbotron">
@@ -8,6 +12,8 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
+<p><a href="@Url.Action("logout", "Login")">LogOut</a></p>
+<h3>Name: @Session["name"].ToString()</h3>
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>

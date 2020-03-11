@@ -29,9 +29,18 @@ namespace WebAplicationTest.Controllers
                 else
                 {
                     Session["userid"] = userDetails.userid;
+                    Session["username"] = userDetails.username;
+                    Session["name"] = userDetails.name;
+                    return RedirectToAction("Index", "Home");
                 }
             }
-            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            int userid = (int)Session["userid"];
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
