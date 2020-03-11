@@ -24,5 +24,6 @@ namespace WebAplicationTest.Models
         [Required(ErrorMessage = "This field is required.")]
         [DataType(DataType.Password)]
         public string password { get; set; }
+        public string LoginErrorMessage { get; set; }
     }
 }

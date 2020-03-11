@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAplicationTest.Models;
 
 namespace WebAplicationTest.Controllers
 {
@@ -15,8 +16,21 @@ namespace WebAplicationTest.Controllers
         }
 
         [HttpPost]
-        public ActionResult Autherize()
+        public ActionResult Autherize(WebAplicationTest.Models.User userModel)
         {
+            using (WebAplicationTestEntities db = new WebAplicationTestEntities())
+            {
+                var userDetails = db.Users.Where(x => x.username == userModel.username && x.password == userModel.password).FirstOrDefault();
+                if(userDetails == null)
+                {
+                    userModel.LoginErrorMessage = "Wrong Username or Password";
+                    return View("Index", userModel);
+                }
+                else
+                {
+                    Session["userid"] = userDetails.userid;
+                }
+            }
             return View();
         }
     }
