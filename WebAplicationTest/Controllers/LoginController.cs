@@ -13,5 +13,11 @@ namespace WebAplicationTest.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Autherize()
+        {
+            return View();
+        }
     }
 }
